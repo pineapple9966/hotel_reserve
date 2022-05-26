@@ -1,7 +1,7 @@
 @extends('admin.base')
 
 @section('content')
-    <form action="">
+    <form action="{{ route('admin.hotels.create') }}">
         <button>新規登録</button>
     </form>
 
@@ -12,7 +12,7 @@
             <th>ホテル名</th>
             <th>価格</th>
         </tr>
-        @foreach ($hotels as $product)
+        @foreach ($hotels as $hotel)
             <tr>
                 <td>{{ $hotel->id }}</td>
                 <td><img src="{{ Storage::url($hotel->photo) }}" alt="{{ $hotel->name }}" width="150"></td>
