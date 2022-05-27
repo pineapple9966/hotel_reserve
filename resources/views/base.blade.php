@@ -23,7 +23,7 @@
             <li><a href="{{ route('logout') }}">ログアウト</a></li>
         @else
             <li><a href="{{ route('register') }}">新規登録</a></li>
-            <li><a href="">ログイン</a></li>
+            <li><a href="{{ route('login') }}">ログイン</a></li>
         @endif
     </ul>
     <hr>
