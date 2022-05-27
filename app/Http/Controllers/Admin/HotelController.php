@@ -58,4 +58,13 @@ class HotelController extends Controller
 
         return redirect()->route('admin.hotels.index');
     }
+
+    public function destroy(Hotel $hotel)
+    {
+        Storage::delete($hotel->photo);
+
+        $hotel->delete();
+
+        return redirect()->route('admin.hotels.index');
+    }
 }

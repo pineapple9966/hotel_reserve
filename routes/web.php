@@ -26,5 +26,6 @@ Route::prefix('admin')->group(function () {
     Route::get('hotels/{hotel}', [Admin\HotelController::class, 'show'])->name('admin.hotels.show');
     Route::get('hotels/{hotel}/edit', [Admin\HotelController::class, 'edit'])->name('admin.hotels.edit');
     Route::put('hotels/{hotel}', [Admin\HotelController::class, 'update'])->name('admin.hotels.update');
-
+    Route::delete('hotels/{hotel}', [Admin\HotelController::class, 'destroy'])->name('admin.hotels.destroy');
+    
 });

@@ -1,6 +1,25 @@
 @extends('admin.base')
 
+@section('javascript')
+    <script>
+        $(function () {
+            $('.delete-btn').click(function () {
+                if(confirm('削除してもよろしいですか？')) {
+                    const $form = $(this).parents('form');
+                    $form.submit();
+                }
+            });
+        });
+    </script>
+@endsection
+
 @section('content')
+    <form method="post" action="{{ route('admin.hotels.destroy', $hotel->id) }}">
+        @method('delete')
+        @csrf
+        <button type="button" class="delete-btn">削除</button>
+    </form>
+
     <form action="{{ route('admin.hotels.edit', $hotel->id) }}">
         <table>
             <tr>
