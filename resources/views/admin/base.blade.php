@@ -8,6 +8,15 @@
     <script src="{{ asset('js/jquery-3.5.1.min.js') }}"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script>
+        $(function () {
+            $('.back-btn').click(function () {
+                const $form = $('#form');
+                $form.attr('action', $(this).data('action'));
+                $form.submit();
+            });
+        });
+    </script>
     @yield('javascript')
 </head>
 <body>
@@ -19,7 +28,8 @@
                 <li><a href="{{ route('admin.hotels.index') }}">ホテル一覧</a></li>
             </ul>
         </div>
-        <div>
+        <div class="col-9">
+            <form id="form"></form>
             @yield('content')
         </div>
     </div>

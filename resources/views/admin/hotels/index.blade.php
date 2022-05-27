@@ -14,7 +14,7 @@
         </tr>
         @foreach ($hotels as $hotel)
             <tr>
-                <td>{{ $hotel->id }}</td>
+                <td><a href="{{ route('admin.hotels.show', $hotel->id) }}">{{ $hotel->id }}</a></td>
                 <td><img src="{{ Storage::url($hotel->photo) }}" alt="{{ $hotel->name }}" width="150"></td>
                 <td>{{ $hotel->name }}</td>
                 <td>{{ $hotel->price }}</td>

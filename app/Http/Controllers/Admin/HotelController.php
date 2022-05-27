@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Storage;
 class HotelController extends Controller
 {
     public $timestamps = false;
-    
+
     public function index()
     {
         $hotels = Hotel::all();
@@ -32,5 +32,10 @@ class HotelController extends Controller
         Hotel::create($attributes);
 
         return redirect()->route('admin.hotels.index');
+    }
+
+    public function show(Hotel $hotel)
+    {
+        return view('admin.hotels.show', compact('hotel'));
     }
 }
