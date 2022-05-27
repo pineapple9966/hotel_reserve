@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,5 +28,6 @@ Route::prefix('admin')->group(function () {
     Route::get('hotels/{hotel}/edit', [Admin\HotelController::class, 'edit'])->name('admin.hotels.edit');
     Route::put('hotels/{hotel}', [Admin\HotelController::class, 'update'])->name('admin.hotels.update');
     Route::delete('hotels/{hotel}', [Admin\HotelController::class, 'destroy'])->name('admin.hotels.destroy');
-    
 });
+
+    Route::get('', [HomeController::class, 'index'])->name('home');
