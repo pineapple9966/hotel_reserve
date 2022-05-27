@@ -20,7 +20,7 @@
     <h1 id="logo"><a href="{{ route('home') }}">HOTEL RESERVE</a></h1>
     <ul>
         @auth
-            <li><a href="">ログアウト</a></li>
+            <li><a href="{{ route('logout') }}">ログアウト</a></li>
         @else
             <li><a href="{{ route('register') }}">新規登録</a></li>
             <li><a href="">ログイン</a></li>

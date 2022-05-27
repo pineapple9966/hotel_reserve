@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -34,3 +35,5 @@ Route::prefix('admin')->group(function () {
     Route::get('', [HomeController::class, 'index'])->name('home');
     Route::get('register', [RegisterController::class, 'showRegistrationForm'])->name('register');
     Route::post('register', [RegisterController::class, 'register']);
+    Route::get('logout', [LoginController::class, 'logout'])->name('logout');
+    
