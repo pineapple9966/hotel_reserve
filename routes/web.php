@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\HotelController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,6 +31,7 @@ Route::prefix('admin')->group(function () {
     Route::get('hotels/{hotel}/edit', [Admin\HotelController::class, 'edit'])->name('admin.hotels.edit');
     Route::put('hotels/{hotel}', [Admin\HotelController::class, 'update'])->name('admin.hotels.update');
     Route::delete('hotels/{hotel}', [Admin\HotelController::class, 'destroy'])->name('admin.hotels.destroy');
+    
 });
 
     Route::get('', [HomeController::class, 'index'])->name('home');
@@ -38,4 +40,4 @@ Route::prefix('admin')->group(function () {
     Route::get('logout', [LoginController::class, 'logout'])->name('logout');
     Route::get('login', [LoginController::class, 'showLoginForm'])->name('login');
     Route::post('login', [LoginController::class, 'login']);
-    
+    Route::get('hotel/{hotel}', [HotelController::class, 'show'])->name('hotels.show');
