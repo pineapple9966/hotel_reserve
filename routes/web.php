@@ -3,8 +3,10 @@
 use App\Http\Controllers\Admin;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\HotelController;
+use App\Http\Controllers\ReservationController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -40,4 +42,5 @@ Route::prefix('admin')->group(function () {
     Route::get('logout', [LoginController::class, 'logout'])->name('logout');
     Route::get('login', [LoginController::class, 'showLoginForm'])->name('login');
     Route::post('login', [LoginController::class, 'login']);
-    Route::get('hotel/{hotel}', [HotelController::class, 'show'])->name('hotels.show');
+    Route::get('hotels/{hotel}', [HotelController::class, 'show'])->name('hotels.show');
+    Route::get('reservations', [ReservationController::class, 'index'])->name('reservation.index');
