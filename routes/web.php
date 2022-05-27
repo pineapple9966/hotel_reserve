@@ -7,6 +7,7 @@ use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\HotelController;
 use App\Http\Controllers\ReservationController;
+use App\Models\Reservation;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -46,4 +47,5 @@ Route::prefix('admin')->group(function () {
     Route::get('reservations', [ReservationController::class, 'index'])->name('reservation.index');
     Route::get('reservations/create', [ReservationController::class, 'create'])->name('reservation.create');
     Route::post('reservations/{hotel}', [ReservationController::class, 'store'])->name('reservation.store');
+    Route::delete('reservation/{reservation}', [Reservation::class, 'destroy'])->name('reservation.destroy');
     

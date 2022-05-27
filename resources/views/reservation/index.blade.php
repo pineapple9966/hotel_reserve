@@ -1,5 +1,18 @@
 @extends('base')
 
+@section('javascript')
+    <script>
+        $(function () {
+            $('.delete-btn').click(function () {
+                if (confirm('キャンセルしてもよろしいですか？')) {
+                    const $form = $(this).parents('form');
+                    $form.submit();
+                }
+            })
+        });
+    </script>
+@endsection
+
 @section('content')
     @Auth
     <table>
@@ -23,7 +36,7 @@
                 <td>{{ $reservation->checkout_date }}</td>
                 <td>{{ $reservation->total_price }}</td>
                 <td>
-                    <form method="post" action="">
+                    <form method="post" action="{{ route('reservation.destroy', $reservation->id) }}">
                         <input type="hidden" name="_method" value="delete">
                         @csrf
                         <button type="button" class="delete-btn">キャンセル</button>

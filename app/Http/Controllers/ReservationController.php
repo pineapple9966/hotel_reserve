@@ -12,11 +12,11 @@ class ReservationController extends Controller
 {
     public function index()
     {
-        $reservation = Reservation::all();
+        $reservations = Reservation::all();
 
         $users = User::all();
 
-        return view('reservation.index', compact('reservation', 'users'));
+        return view('reservation.index', compact('reservations', 'users'));
     }
 
     public function create(Hotel $hotel)
@@ -47,10 +47,17 @@ class ReservationController extends Controller
             'user_id' => $request->user()->id,
             'hotel_id' => $hotel->id,
             'checkin_date' => $request['checkin_date'],
-            'chdckout_date' => $request['checkout_date'],
+            'checkout_date' => $request['checkout_date'],
             'total_price' => $totalPrice,
         ]);
 
         return redirect()->route('reservation.index', $hotel->id);
+    }
+
+    public function destroy(Request $request, Reservation $reservation)
+    {
+        $reservation->delete();
+
+        return redirect()->route('home');
     }
 }

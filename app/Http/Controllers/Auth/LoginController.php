@@ -27,13 +27,13 @@ class LoginController extends Controller
 
     public function login(Request $request)
     {
-        $credential = $request->only('email', 'password');
+        $credentials = $request->only('email', 'password');
 
-        if (Auth::guard()->attempt($credential)) {
+        if (Auth::guard()->attempt($credentials)) {
             $request->session()->regenerate();
-        }
 
-        return redirect()->route('home');
+            return redirect()->route('home');
+        }
 
         throw ValidationException::withMessages([
             'email' => ['メールアドレスまたはパスワードに誤りがあります']
