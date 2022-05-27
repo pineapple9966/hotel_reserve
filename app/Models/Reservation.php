@@ -13,10 +13,14 @@ class Reservation extends Model
         'user_id',
         'hotel_id',
         'checkin_date',
-        'chackout_date',
+        'checkout_date',
         'total_price',
-        'use_point',
         'checked_in',
         'checked_out',
     ];
+
+    public function hotel()
+    {
+        return $this->belongsTo('App\Models\Hotel');
+    }
 }

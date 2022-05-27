@@ -7,7 +7,7 @@
             <h3>{{ $hotel->name }}</h3>
             <br>
 
-            <form method="post" action="">
+            <form method="post" action="{{ route('reservation.store', $hotel->id) }}">
                 @csrf
 
                 <table>

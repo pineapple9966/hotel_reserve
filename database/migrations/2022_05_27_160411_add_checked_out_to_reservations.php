@@ -13,9 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('reservations', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+        Schema::table('reservations', function (Blueprint $table) {
+            $table->boolean('checked_out')->default(false);
         });
     }
 
@@ -26,6 +25,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('reservations');
+        Schema::table('reservations', function (Blueprint $table) {
+            $table->dropColumn('checked_out');
+        });
     }
 };

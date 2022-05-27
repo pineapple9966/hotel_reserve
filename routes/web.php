@@ -44,3 +44,6 @@ Route::prefix('admin')->group(function () {
     Route::post('login', [LoginController::class, 'login']);
     Route::get('hotels/{hotel}', [HotelController::class, 'show'])->name('hotels.show');
     Route::get('reservations', [ReservationController::class, 'index'])->name('reservation.index');
+    Route::get('reservations/create', [ReservationController::class, 'create'])->name('reservation.create');
+    Route::post('reservations/{hotel}', [ReservationController::class, 'store'])->name('reservation.store');
+    

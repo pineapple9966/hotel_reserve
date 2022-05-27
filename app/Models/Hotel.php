@@ -14,4 +14,13 @@ class Hotel extends Model
         'photo',
         'price',
     ];
+
+    public function price()
+    {
+        if (in_array(\Carbon\Carbon::now()->dayOfWeek, [0, 6, 2])) {
+            return floor($this->price * 1.01);
+        } else {
+            return $this->price;
+        }
+    }
 }
