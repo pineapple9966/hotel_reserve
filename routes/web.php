@@ -24,5 +24,7 @@ Route::prefix('admin')->group(function () {
     Route::get('hotels/create', [Admin\HotelController::class, 'create'])->name('admin.hotels.create');
     Route::post('hotels', [Admin\HotelController::class, 'store'])->name('admin.hotels.store');
     Route::get('hotels/{hotel}', [Admin\HotelController::class, 'show'])->name('admin.hotels.show');
+    Route::get('hotels/{hotel}/edit', [Admin\HotelController::class, 'edit'])->name('admin.hotels.edit');
+    Route::put('hotels/{hotel}', [Admin\HotelController::class, 'update'])->name('admin.hotels.update');
 
 });

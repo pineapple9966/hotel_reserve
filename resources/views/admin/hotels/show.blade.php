@@ -1,7 +1,7 @@
 @extends('admin.base')
 
 @section('content')
-    <form action="">
+    <form action="{{ route('admin.hotels.edit', $hotel->id) }}">
         <table>
             <tr>
                 <td colspan="2"><img src="{{ Storage::url($hotel->photo) }}" alt="{{ $hotel->name }}" width="300"></td>

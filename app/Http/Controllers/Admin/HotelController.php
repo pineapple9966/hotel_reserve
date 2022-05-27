@@ -38,4 +38,24 @@ class HotelController extends Controller
     {
         return view('admin.hotels.show', compact('hotel'));
     }
+
+    public function edit(Hotel $hotel)
+    {
+        return view('admin.hotels.edit', compact('hotel'));
+    }
+
+    public function update(Request $request, Hotel $hotel)
+    {
+        $attributes = $request->all();
+
+        if(isset($attributes['photo'])) {
+            Storage::delete($hotel->photo);
+
+            $attributes['photo'] = Storage::putFile('hotels', $request['photo']);
+        }
+
+        $hotel->update($attributes);
+
+        return redirect()->route('admin.hotels.index');
+    }
 }
